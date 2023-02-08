@@ -2,12 +2,12 @@
 
 ## Set up volumes location
 Linux users
-```shell
+```sh
 export GITLAB_HOME=/srv/gitlab
 ```
 
 MacOs users
-```shell
+```sh
 export GITLAB_HOME=$HOME/gitlab
 ```
 
@@ -15,22 +15,22 @@ export GITLAB_HOME=$HOME/gitlab
 
 ## Gitlab installation
 ### Get the repository on your server
-```shell
+```sh
 git clone https://github.com/billkurios/gitlab-docker-selfhosted.git
 ```
 ### Setup the secrets file
-In the gitlab-docker-selfhosted, create .env.secrets file and setup these variables
+In the gitlab-docker-selfhosted, create **.env.secrets** file and setup these variables
  ```yml
-HOSTNAME='gitlab.my-icc.org'
-HTTPS_URL='https://gitlab.my-icc.org'
-HTTP_PORT=8023
-HTTPS_PORT=4323
+HOSTNAME='gitlab.domain.com'
+HTTPS_URL='https://gitlab.domain.com'
+HTTP_PORT=80
+HTTPS_PORT=443
 SSH_PORT=22
 GITLAB_VERSION=15.6.7-ee.0
 ```
 
 ### Run the docker-compose file with the secret file
- ```shell
+ ```sh
 docker compose --env-file .env.secrets up
 ```
 
