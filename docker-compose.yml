@@ -24,13 +24,15 @@ services:
         gitlab_rails['smtp_enable_starttls_auto'] = true
         gitlab_rails['smtp_tls'] = false
         gitlab_rails['smtp_openssl_verify_mode'] = 'peer'
+        # Alert Manager
+        alertmanager['admin_email'] = '${ALERT_ADMIN_EMAIL}'
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
       - '${HTTP_PORT}:80'
       - '${HTTPS_PORT}:443'
       - '${SSH_PORT}:22'
     volumes:
-      - '$GITLAB_HOME/config:/etc/gitlab'
-      - '$GITLAB_HOME/logs:/var/log/gitlab'
-      - '$GITLAB_HOME/data:/var/opt/gitlab'
+      - '${GITLAB_HOME}/config:/etc/gitlab'
+      - '${GITLAB_HOME}/logs:/var/log/gitlab'
+      - '${GITLAB_HOME}/data:/var/opt/gitlab'
     shm_size: '256m'

@@ -23,6 +23,7 @@ git clone https://github.com/billkurios/gitlab-docker-selfhosted.git
 ### Setup the secrets file
 In the gitlab-docker-selfhosted, create **.env.secrets** file and setup these variables
  ```yml
+GITLAB_HOME='/srv/gitlab'
 HOSTNAME='gitlab.domain.com'
 HTTPS_URL='https://gitlab.domain.com'
 HTTP_PORT=80
@@ -34,6 +35,7 @@ SSL_RENEW_MINUTE=30
 SSL_RENEW_DAY_OF_MONTH=7
 SMTP_GMAIL_PWD='your_password'
 SMTP_GMAIL_ADDRESS='your_email@gmail.com'
+ALERT_ADMIN_EMAIL='alert_manager_mail@domain.com'
 GITLAB_VERSION=15.6.7-ee.0
 ```
 
