@@ -36,8 +36,11 @@ SSL_RENEW_DAY_OF_MONTH=7
 SMTP_GMAIL_PWD='your_password'
 SMTP_GMAIL_ADDRESS='your_email@gmail.com'
 ALERT_ADMIN_EMAIL='alert_manager_mail@domain.com'
-GITLAB_VERSION=15.6.7-ee.0
+GITLAB_VERSION=15.6.7-ce.0
+EDITION_TYPE='ce'
 ```
+
+**EDITION_TYPE** key is used to specify if we used community edition **ce** or enterprise edition **ee** of gitlab.
 
 ### Run the docker-compose file with the secret file
  ```sh
