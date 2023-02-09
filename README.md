@@ -32,6 +32,8 @@ CONTACT_EMAIL='info@domain.com'
 SSL_RENEW_HOUR=2
 SSL_RENEW_MINUTE=30
 SSL_RENEW_DAY_OF_MONTH=7
+SMTP_GMAIL_PWD='your_password'
+SMTP_GMAIL_ADDRESS='your_email@gmail.com'
 GITLAB_VERSION=15.6.7-ee.0
 ```
 
