@@ -8,10 +8,22 @@ services:
     environment:
       GITLAB_OMNIBUS_CONFIG: |
         external_url "${HTTPS_URL}"
+        # SSL config
         letsencrypt['contact_emails'] = ['${CONTACT_EMAIL}']
         letsencrypt['auto_renew_hour'] = ${SSL_RENEW_HOUR}
         letsencrypt['auto_renew_minute'] = ${SSL_RENEW_MINUTE}
         letsencrypt['auto_renew_day_of_month'] = "*/${SSL_RENEW_DAY_OF_MONTH}"
+        # Gmail SMTP config
+        gitlab_rails['smtp_enable'] = true
+        gitlab_rails['smtp_address'] = "smtp.gmail.com"
+        gitlab_rails['smtp_port'] = 587
+        gitlab_rails['smtp_user_name'] = "${SMTP_GMAIL_ADDRESS}"
+        gitlab_rails['smtp_password'] = "${SMTP_GMAIL_PWD}"
+        gitlab_rails['smtp_domain'] = "smtp.gmail.com"
+        gitlab_rails['smtp_authentication'] = "login"
+        gitlab_rails['smtp_enable_starttls_auto'] = true
+        gitlab_rails['smtp_tls'] = false
+        gitlab_rails['smtp_openssl_verify_mode'] = 'peer'
         # Add any other gitlab.rb configuration here, each on its own line
     ports:
       - '${HTTP_PORT}:80'
