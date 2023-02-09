@@ -4,11 +4,11 @@ services:
     image: 'gitlab/gitlab-ee:${GITLAB_VERSION}'
     container_name: gitlab
     restart: always
-    hostname: ${HOSTNAME}
+    hostname: '${HOSTNAME}'
     environment:
       GITLAB_OMNIBUS_CONFIG: |
-        external_url ${HTTPS_URL}
-        letsencrypt['contact_emails'] = [${CONTACT_EMAIL}]
+        external_url "${HTTPS_URL}"
+        letsencrypt['contact_emails'] = ['${CONTACT_EMAIL}']
         letsencrypt['auto_renew_hour'] = ${SSL_RENEW_HOUR}
         letsencrypt['auto_renew_minute'] = ${SSL_RENEW_MINUTE}
         letsencrypt['auto_renew_day_of_month'] = "*/${SSL_RENEW_DAY_OF_MONTH}"
